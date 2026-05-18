@@ -12,7 +12,7 @@ namespace Automobile_Production.AssemblyLines
 {
     class CarAssemblyLine : AssemblyLine
     {
-        private  CarPartsFactory factory;
+        private CarPartsFactory factory;
 
         public int CarsBuilt { get; set; }
 
@@ -23,37 +23,39 @@ namespace Automobile_Production.AssemblyLines
             Status = "Idle";
         }
 
-        public async Task BuildCar(string colour)
+        public void BuildCar(string colour)
         {
             Car car = new Car(colour);
 
-            Status = $"Building {car} Chassis";
+            Status = $"Creating {car} Chassis";
             factory.CreateChassis();
 
-            Status = $"Building {car} Shell";
+            Status = $"Creating {car} Shell";
             factory.CreateShell();
 
-            Status = $"Building {car} Right Front Wheel";
-            factory.CreateWheel();
-            Status = $"Building {car} Left Front Wheel";
-            factory.CreateWheel();
-            Status = $"Building {car} Right Back Wheel";
-            factory.CreateWheel();
-            Status = $"Building {car} Left Back Wheel";
+            Status = $"Creating {car} Right Front Wheel";
             factory.CreateWheel();
 
+            Status = $"Creating {car} Left Front Wheel";
+            factory.CreateWheel();
 
-            Status = $"Building {car} Trim";
+            Status = $"Creating {car} Right Rear Wheel";
+            factory.CreateWheel();
+
+            Status = $"Creating {car} Left Rear Wheel";
+            factory.CreateWheel();
+
+            Status = $"Creating {car} Trim";
             factory.CreateTrim();
 
-            Status = $"Perfoming final assembly of {car}";
+            Status = $"Performing final assembly of {car}";
             Thread.Sleep(2000);
 
-            Status = $"Sent {car} for painting";
+            Status = $"Sent {colour} for painting";
 
-            await Spraybooth.Instance.PaintVehicle(car);
+            Spraybooth.Instance.PaintVehicle(car);
 
-            Status = "Car Successfully Completed!";
+            Status = $"{car} Completed";
 
             CarsBuilt++;
 

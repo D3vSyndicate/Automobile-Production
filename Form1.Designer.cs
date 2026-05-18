@@ -45,6 +45,10 @@
             this.lblSprayboothStatus = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rbBlackCar
@@ -97,7 +101,7 @@
             this.lblCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCar.Location = new System.Drawing.Point(251, 34);
             this.lblCar.Name = "lblCar";
-            this.lblCar.Size = new System.Drawing.Size(202, 39);
+            this.lblCar.Size = new System.Drawing.Size(196, 38);
             this.lblCar.TabIndex = 4;
             this.lblCar.Text = "Car Queue:";
             // 
@@ -107,7 +111,7 @@
             this.lblMinibus.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinibus.Location = new System.Drawing.Point(1319, 34);
             this.lblMinibus.Name = "lblMinibus";
-            this.lblMinibus.Size = new System.Drawing.Size(269, 39);
+            this.lblMinibus.Size = new System.Drawing.Size(259, 38);
             this.lblMinibus.TabIndex = 5;
             this.lblMinibus.Text = "Minibus Queue:";
             // 
@@ -117,7 +121,7 @@
             this.lblCarTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarTitle.Location = new System.Drawing.Point(779, 153);
             this.lblCarTitle.Name = "lblCarTitle";
-            this.lblCarTitle.Size = new System.Drawing.Size(330, 39);
+            this.lblCarTitle.Size = new System.Drawing.Size(319, 38);
             this.lblCarTitle.TabIndex = 6;
             this.lblCarTitle.Text = "Car Assembly Line:";
             // 
@@ -127,7 +131,7 @@
             this.lblMinibusTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinibusTitle.Location = new System.Drawing.Point(731, 321);
             this.lblMinibusTitle.Name = "lblMinibusTitle";
-            this.lblMinibusTitle.Size = new System.Drawing.Size(397, 39);
+            this.lblMinibusTitle.Size = new System.Drawing.Size(382, 38);
             this.lblMinibusTitle.TabIndex = 7;
             this.lblMinibusTitle.Text = "Minibus Assembly Line:";
             // 
@@ -137,7 +141,7 @@
             this.lblSpraybooth.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpraybooth.Location = new System.Drawing.Point(809, 514);
             this.lblSpraybooth.Name = "lblSpraybooth";
-            this.lblSpraybooth.Size = new System.Drawing.Size(201, 39);
+            this.lblSpraybooth.Size = new System.Drawing.Size(194, 38);
             this.lblSpraybooth.TabIndex = 8;
             this.lblSpraybooth.Text = "Spraybooth";
             // 
@@ -207,12 +211,56 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 381);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 23);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Tinyiko Mkhombo: 229072739";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(40, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(251, 23);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Sbusiso Nxumalo: 224273131";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(40, 478);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(222, 23);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Thapelo Sitoe: 229282822";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 529);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(252, 23);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Khanyisa Mbonya: 225347865";
+            // 
             // CoolRides
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1779, 718);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.lblSprayboothStatus);
             this.Controls.Add(this.lblMinibusAssemblyLine);
@@ -253,6 +301,10 @@
         private System.Windows.Forms.Label lblSprayboothStatus;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

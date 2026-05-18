@@ -1,40 +1,70 @@
 ﻿using Automobile_Production.Models.Vehicles;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Automobile_Production.Services
 {
     class Spraybooth
     {
-        private static readonly Lazy<Spraybooth> instance =
-            new Lazy<Spraybooth>(() => new Spraybooth());
+        private static Spraybooth instance;
 
-        public static Spraybooth Instance => instance.Value;
+        private static readonly object padlock = new object();
 
-        public string Status { get; private set; }
+        private readonly object boothLock = new object();
 
-        private readonly object padlock = new object();
+        public string Status { get; set; }
 
         private Spraybooth()
         {
             Status = "Idle";
         }
 
-        public async Task PaintVehicle(Vehicle vehicle)
+        public static Spraybooth Instance
         {
-            lock (padlock)
+            get
             {
-                Status = $"Painting {vehicle}";
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Spraybooth();
+                    }
+
+                    return instance;
+                }
             }
+        }
 
-            int paintTime = vehicle is Car ? 5000 : 7000;
-            await Task.Delay(paintTime);
-
-            vehicle.IsPainted = true;
-
-            lock (padlock)
+        public void PaintVehicle(Vehicle vehicle)
+        {
+            lock (boothLock)
             {
+                // UPDATE STATUS
+                Status = $"Spraying and drying {vehicle}";
+
+                // PAINTING TIME
+                Thread.Sleep(100);
+
+                if (vehicle is Car)
+                {
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    Thread.Sleep(7000);
+                }
+
+                // VEHICLE DONE
+                vehicle.IsPainted = true;
+
+                // RESET STATUS
                 Status = "Idle";
+
+                Console.WriteLine(Status);
             }
         }
     }
