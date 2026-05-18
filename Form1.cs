@@ -66,5 +66,10 @@ namespace Automobile_Production
         {
 
         }
+
+        private void lblSpraybooth_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
