@@ -61,5 +61,10 @@ namespace Automobile_Production
             lblSprayboothStatus.Text =
                 Spraybooth.Instance.Status;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
