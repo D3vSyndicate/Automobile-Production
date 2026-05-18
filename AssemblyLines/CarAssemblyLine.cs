@@ -12,7 +12,7 @@ namespace Automobile_Production.AssemblyLines
 {
     class CarAssemblyLine : AssemblyLine
     {
-        private CarPartsFactory factory;
+        private  CarPartsFactory factory;
 
         public int CarsBuilt { get; set; }
 
@@ -25,32 +25,35 @@ namespace Automobile_Production.AssemblyLines
 
         public void BuildCar(string colour)
         {
-            Status = $"Building {colour} LUX1000 Chassis";
-            factory.CreateChassis();
-
-            Status = $"Building {colour} LUX1000 Shell";
-            factory.CreateShell();
-
-            Status = $"Building {colour} LUX1000 Wheels";
-
-            for (int i = 0; i < 4; i++)
-            {
-                factory.CreateWheel();
-            }
-
-            Status = $"Building {colour} LUX1000 Trim";
-            factory.CreateTrim();
-
-            Status = "Assembling Car";
-            Thread.Sleep(2000);
-
             Car car = new Car(colour);
 
-            Status = "Waiting For Spraybooth";
+            Status = $"Building {car} Chassis";
+            factory.CreateChassis();
+
+            Status = $"Building {car} Shell";
+            factory.CreateShell();
+
+            Status = $"Building {car} Right Front Wheel";
+            factory.CreateWheel();
+            Status = $"Building {car} Left Front Wheel";
+            factory.CreateWheel();
+            Status = $"Building {car} Right Back Wheel";
+            factory.CreateWheel();
+            Status = $"Building {car} Left Back Wheel";
+            factory.CreateWheel();
+
+
+            Status = $"Building {car} Trim";
+            factory.CreateTrim();
+
+            Status = $"Perfoming final assembly of {car}";
+            Thread.Sleep(2000);
+
+            Status = $"Sent {car} for painting";
 
             Spraybooth.Instance.PaintVehicle(car);
 
-            Status = "Car Completed";
+            Status = "Car Successfully Completed!";
 
             CarsBuilt++;
 

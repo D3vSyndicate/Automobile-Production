@@ -25,32 +25,37 @@ namespace Automobile_Production.AssemblyLines
 
         public void BuildMinibus(string colour)
         {
-            Status = "Building Minibus Chassis";
-            factory.CreateChassis();
-
-            Status = "Building Minibus Shell";
-            factory.CreateShell();
-
-            Status = "Building Minibus Wheels";
-
-            for (int i = 0; i < 4; i++)
-            {
-                factory.CreateWheel();
-            }
-
-            Status = "Building Minibus Trim";
-            factory.CreateTrim();
-
-            Status = "Assembling Minibus";
-            Thread.Sleep(3000);
-
             Minibus minibus = new Minibus(colour);
 
-            Status = "Waiting For Spraybooth";
+            Status = $"Building {minibus} Chassis";
+            factory.CreateChassis();
+
+            Status = $"Building {minibus} Shell";
+            factory.CreateShell();
+
+
+            Status = $"Building {minibus} Right Front Wheel";
+            factory.CreateWheel();
+            Status = $"Building {minibus} Left Front Wheel";
+            factory.CreateWheel();
+            Status = $"Building {minibus} Right Back Wheel";
+            factory.CreateWheel();
+            Status = $"Building {minibus} Left Back Wheel";
+            factory.CreateWheel();
+            
+
+            Status = $"Building {minibus} Trim";
+            factory.CreateTrim();
+
+            Status = $"Performing final assembly of {minibus}";
+            Thread.Sleep(3000);
+
+
+            Status = $"Sent {minibus} for painting";
 
             Spraybooth.Instance.PaintVehicle(minibus);
 
-            Status = "Minibus Completed";
+            Status = "Minibus Successfully Completed!";
 
             MinibusesBuilt++;
 
