@@ -23,7 +23,7 @@ namespace Automobile_Production.AssemblyLines
             Status = "Idle";
         }
 
-        public void BuildCar(string colour)
+        public async Task BuildCar(string colour)
         {
             Car car = new Car(colour);
 
@@ -51,7 +51,7 @@ namespace Automobile_Production.AssemblyLines
 
             Status = $"Sent {car} for painting";
 
-            Spraybooth.Instance.PaintVehicle(car);
+            await Spraybooth.Instance.PaintVehicle(car);
 
             Status = "Car Successfully Completed!";
 

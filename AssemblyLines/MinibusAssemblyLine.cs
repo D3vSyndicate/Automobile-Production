@@ -23,7 +23,7 @@ namespace Automobile_Production.AssemblyLines
             Status = "Idle";
         }
 
-        public void BuildMinibus(string colour)
+        public async Task BuildMinibus(string colour)
         {
             Minibus minibus = new Minibus(colour);
 
@@ -42,18 +42,19 @@ namespace Automobile_Production.AssemblyLines
             factory.CreateWheel();
             Status = $"Building {minibus} Left Back Wheel";
             factory.CreateWheel();
-            
+
 
             Status = $"Building {minibus} Trim";
             factory.CreateTrim();
 
             Status = $"Performing final assembly of {minibus}";
-            Thread.Sleep(3000);
+            
 
 
             Status = $"Sent {minibus} for painting";
 
-            Spraybooth.Instance.PaintVehicle(minibus);
+
+            await Spraybooth.Instance.PaintVehicle(minibus);
 
             Status = "Minibus Successfully Completed!";
 
