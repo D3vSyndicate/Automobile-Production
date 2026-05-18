@@ -25,20 +25,20 @@ namespace Automobile_Production.AssemblyLines
 
         public void BuildCar(string colour)
         {
-            Status = "Building Car Chassis";
+            Status = $"Building {colour} LUX1000 Chassis";
             factory.CreateChassis();
 
-            Status = "Building Car Shell";
+            Status = $"Building {colour} LUX1000 Shell";
             factory.CreateShell();
 
-            Status = "Building Car Wheels";
+            Status = $"Building {colour} LUX1000 Wheels";
 
             for (int i = 0; i < 4; i++)
             {
                 factory.CreateWheel();
             }
 
-            Status = "Building Car Trim";
+            Status = $"Building {colour} LUX1000 Trim";
             factory.CreateTrim();
 
             Status = "Assembling Car";
