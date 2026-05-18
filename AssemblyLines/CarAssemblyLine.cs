@@ -51,7 +51,7 @@ namespace Automobile_Production.AssemblyLines
             Status = $"Performing final assembly of {car}";
             Thread.Sleep(2000);
 
-            Status = $"Sent {colour} for painting";
+            Status = $"Sent {car} for painting";
 
             Spraybooth.Instance.PaintVehicle(car);
 
