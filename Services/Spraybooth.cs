@@ -1,59 +1,39 @@
 ﻿using Automobile_Production.Models.Vehicles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Automobile_Production.Services
 {
     class Spraybooth
     {
-        private static Spraybooth instance;
+        private static readonly Lazy<Spraybooth> instance =
+            new Lazy<Spraybooth>(() => new Spraybooth());
 
-        private static readonly object padlock = new object();
+        public static Spraybooth Instance => instance.Value;
 
-        public string Status { get; set; }
+        public string Status { get; private set; }
+
+        private readonly object padlock = new object();
 
         private Spraybooth()
         {
             Status = "Idle";
         }
 
-        public static Spraybooth Instance
-        {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new Spraybooth();
-                    }
-
-                    return instance;
-                }
-            }
-        }
-
-        public void PaintVehicle(Vehicle vehicle)
+        public async Task PaintVehicle(Vehicle vehicle)
         {
             lock (padlock)
             {
                 Status = $"Painting {vehicle}";
+            }
 
-                if (vehicle is Car)
-                {
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    Thread.Sleep(7000);
-                }
+            int paintTime = vehicle is Car ? 5000 : 7000;
+            await Task.Delay(paintTime);
 
-                vehicle.IsPainted = true;
+            vehicle.IsPainted = true;
 
+            lock (padlock)
+            {
                 Status = "Idle";
             }
         }
