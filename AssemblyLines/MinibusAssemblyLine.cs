@@ -49,7 +49,7 @@ namespace Automobile_Production.AssemblyLines
 
             Status = $"Performing final assembly of {minibus}";
             
-
+            Thread.Sleep(3000);
 
             Status = $"Sent {minibus} for painting";
 
